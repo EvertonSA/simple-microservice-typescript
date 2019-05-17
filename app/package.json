@@ -1,0 +1,48 @@
+{
+  "name": "simple-microservice-typescript",
+  "version": "1.0.0",
+  "description": "Simple microservice typescript",
+  "main": "./dist/bundle.js",
+  "scripts": {
+    "build-production": "webpack --config webpack.config.js; node ./dist/bin/app.js",
+    "build-development": "webpack --config webpack.config.js --watch",
+    "start": "npm install; npm run build-$NODE_ENV"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helionogueir/simple-microservice-typescript.git"
+  },
+  "keywords": [
+    "microservice",
+    "typescript"
+  ],
+  "author": "Helio Nogueira <helio.nogueir@gmail.com>",
+  "license": "Unlicense",
+  "dependencies": {
+    "@types/connect-timeout": "0.0.34",
+    "@types/express": "^4.16.1",
+    "@types/mongodb": "^3.1.26",
+    "@types/node": "^11.13.10",
+    "connect-timeout": "^1.9.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "express": "^4.16.4",
+    "mongodb": "^3.2.4",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.4",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "@typescript-eslint/parser": "^1.7.0",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "nodemon": "^1.19.0",
+    "nodemon-webpack-plugin": "^4.0.8"
+  }
+}
