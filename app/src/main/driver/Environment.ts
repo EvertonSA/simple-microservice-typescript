@@ -1,4 +1,4 @@
-declare const CFG: { version: string; }
+declare const CFG: { version: string }
 export const Environment = Object.freeze({
   APP_VERSION: CFG.version,
   NODE_ENV: process.env.NODE_ENV || 'development',

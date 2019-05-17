@@ -4,6 +4,7 @@ import { DateHandler } from '@app/main/usecase/CalendarHandler'
 export class PersonValidator {
   public validate (person: PersonStructure): PersonStructure {
     return Object.freeze({
+      _id: person._id,
       firstname: this.validateFirstname(person.firstname),
       lastname: this.validateLastname(person.lastname),
       birthday: this.validateBirthday(person.birthday)

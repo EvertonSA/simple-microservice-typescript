@@ -1,5 +1,5 @@
 import { Environment } from '@app/main/driver/Environment'
-import { MongoClient, Collection, MongoClientOptions, CollectionCreateOptions, Db } from 'mongodb'
+import { MongoClient, Collection, MongoClientOptions, CollectionCreateOptions } from 'mongodb'
 
 class Dbal {
   private static client: MongoClient

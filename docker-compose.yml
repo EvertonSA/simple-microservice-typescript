@@ -9,9 +9,8 @@ services:
             - ./storage/mongodb/current:/data/db
     app-server:
         mem_limit: 2G
-        container_name: app
+        container_name: app-server
         env_file: ./.infra/app/development.env
-        image: app-server
         build:
             dockerfile: ./.infra/app/development.dockerfile
             context: .

@@ -5,9 +5,9 @@ import person = require('@app/database/person.json')
 
 export class Database {
   public static seed (): void {
-    Database.user().catch((err): void => console.error(err))
+    Database.person().catch((err): void => console.error(err))
   }
-  public static user (): Promise<Collection> {
+  public static person (): Promise<Collection> {
     return new Promise<Collection>((resolve, reject): void => {
       Db.collection('user', `person`, person)
         .then((collection): void => resolve(collection))

@@ -63,6 +63,7 @@ typings/
 # app
 app/dist
 app/node_modules
+package-lock.json
 
 # storage
 storage

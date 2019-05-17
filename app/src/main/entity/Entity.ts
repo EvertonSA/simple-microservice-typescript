@@ -11,6 +11,6 @@ export interface EntityUpdate<Input, Output> {
   updateRow (row: Input): Promise<Output>;
 }
 
-export interface EntityDelete<Input, Output> {
-  deleteRow (row: Input): Promise<Output>;
+export interface EntityDelete<Output> {
+  deleteRow (id: string): Promise<Output>;
 }

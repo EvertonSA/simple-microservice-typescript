@@ -1,16 +1,34 @@
-import { ControllerRead } from '@app/main/adapter/Controller'
 import { PersonRead } from '@app/user/entity/PersonRead'
-import { PersonStructure } from '@app/user/entity/Person'
-import { CleanResponse } from '@app/user/usecase/CleanResponse'
-import { PersonValidator } from '@app/user/usecase/PersonValidator'
+import { PersonCreate } from '@app/user/entity/PersonCreate'
+import { PersonDelete } from '@app/user/entity/PersonDelete'
+import { PersonStructure, Person } from '@app/user/entity/Person'
+import { ControllerRead, ControllerCreate, ControllerDelete } from '@app/main/adapter/Controller'
 
-export class PersonController implements ControllerRead<PersonStructure, PersonStructure> {
-  public find (params: PersonStructure): Promise<PersonStructure> {
+export class PersonController implements
+  ControllerRead<string, PersonStructure>,
+  ControllerCreate<PersonStructure, PersonStructure>,
+  ControllerDelete<boolean> {
+  public find (id: string): Promise<PersonStructure> {
     return new Promise<PersonStructure>(async (resolve, reject): Promise<void> => {
-      const platform = (new PersonValidator()).validate(params);
-      (new PersonRead()).findRowByPerson(platform)
-        .then((new CleanResponse()).byPerson)
-        .then((result: PersonStructure): void => resolve(result))
+      (new PersonRead()).findRow(id)
+        .then((result): void => resolve(result))
+        .then((err): void => reject(err))
+    })
+  }
+  public create (params: PersonStructure): Promise<PersonStructure> {
+    return new Promise<PersonStructure>((resolve, reject): void => {
+      const person = new Person(params);
+      (new PersonCreate()).registerRow(person)
+        .then((result): void => {
+          resolve(result)
+        })
+        .catch((err): void => reject(err))
+    })
+  }
+  public delete (id: string): Promise<boolean> {
+    return new Promise<boolean>(async (resolve, reject): Promise<void> => {
+      (new PersonDelete()).deleteRow(id)
+        .then((result): void => resolve(result))
         .then((err): void => reject(err))
     })
   }

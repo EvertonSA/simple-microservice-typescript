@@ -40,10 +40,7 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = {
   target: 'async-node',
   mode: process.env.NODE_ENV,
-  entry: {
-    'bin/app': path.resolve('./src/handler.ts'),
-    'public/assets/checkout.min': path.resolve('./public/checkout/handler.ts')
-  },
+  entry: { 'bin/app': path.resolve('./src/handler.ts') },
   output: {
     filename: '[name].js',
     path: path.resolve('./dist')
