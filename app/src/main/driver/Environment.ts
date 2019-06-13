@@ -1,6 +1,4 @@
-declare const CFG: { version: string }
-export const Environment = Object.freeze({
-  APP_VERSION: CFG.version,
+const Environment = Object.freeze({
   NODE_ENV: process.env.NODE_ENV || 'development',
   SERVER_URI_PORT: process.env.SERVER_URI_PORT
     ? 3000 : parseInt(`${process.env.SERVER_URI_PORT}`),
@@ -14,3 +12,5 @@ export const Environment = Object.freeze({
   STORAGE_MONGO_CONNECT_TIMEOUT: process.env.STORAGE_MONGO_CONNECT_TIMEOUT
     ? 30000 : parseInt(`${process.env.STORAGE_MONGO_CONNECT_TIMEOUT}`)
 })
+
+export { Environment }

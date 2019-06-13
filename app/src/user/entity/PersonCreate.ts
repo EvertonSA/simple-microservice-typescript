@@ -1,8 +1,8 @@
-import { Database } from '@app/database/Connect'
-import { EntityCreate } from '@app/main/entity/Entity'
-import { PersonStructure } from '@app/user/entity/Person'
+import { Database } from '../../database/Connect'
+import { EntityCreate } from '../../main/entity/Entity'
+import { PersonStructure } from '../../user/entity/Person'
 
-export class PersonCreate implements EntityCreate<PersonStructure, PersonStructure> {
+class PersonCreate implements EntityCreate<PersonStructure, PersonStructure> {
   public registerRow (row: PersonStructure): Promise<PersonStructure> {
     return new Promise<PersonStructure>((resolve, reject): void => {
       delete row._id
@@ -15,3 +15,5 @@ export class PersonCreate implements EntityCreate<PersonStructure, PersonStructu
     })
   }
 }
+
+export { PersonCreate }

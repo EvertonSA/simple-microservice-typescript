@@ -1,5 +1,5 @@
-import { Express } from '@app/main/driver/Express'
-import { Database } from '@app/database/Connect'
+import { Express } from './main/driver/Express'
+import { Database } from './database/Connect'
 
 try {
   Database.seed();

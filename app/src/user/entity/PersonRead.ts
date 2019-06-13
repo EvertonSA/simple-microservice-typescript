@@ -1,9 +1,9 @@
 import { ObjectId } from 'bson'
-import { Database } from '@app/database/Connect'
-import { EntityRead } from '@app/main/entity/Entity'
-import { PersonStructure } from '@app/user/entity/Person'
+import { Database } from '../../database/Connect'
+import { EntityRead } from '../../main/entity/Entity'
+import { PersonStructure } from '../../user/entity/Person'
 
-export class PersonRead implements EntityRead<PersonStructure, PersonStructure> {
+class PersonRead implements EntityRead<PersonStructure, PersonStructure> {
   public findAll (options?: PersonStructure): Promise<PersonStructure[]> {
     return new Promise<PersonStructure[]>((resolve, reject): void => {
       Database.person().then((collection): void => {
@@ -25,3 +25,5 @@ export class PersonRead implements EntityRead<PersonStructure, PersonStructure> 
     })
   }
 }
+
+export { PersonRead }

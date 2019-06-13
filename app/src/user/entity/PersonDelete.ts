@@ -1,8 +1,8 @@
 import { ObjectId } from 'bson'
-import { Database } from '@app/database/Connect'
-import { EntityDelete } from '@app/main/entity/Entity'
+import { Database } from '../../database/Connect'
+import { EntityDelete } from '../../main/entity/Entity'
 
-export class PersonDelete implements EntityDelete<boolean> {
+class PersonDelete implements EntityDelete<boolean> {
   public deleteRow (id: string): Promise<boolean> {
     return new Promise<boolean>((resolve, reject): void => {
       Database.person().then((collection): void => {
@@ -14,3 +14,5 @@ export class PersonDelete implements EntityDelete<boolean> {
     })
   }
 }
+
+export { PersonDelete }

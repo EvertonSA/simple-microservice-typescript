@@ -1,7 +1,7 @@
 import { Router } from 'express'
-import { PersonStructure } from '@app/user/entity/Person'
-import { HttpProxyResponse } from '@app/main/usecase/HttpProxyResponse'
-import { PersonController } from '@app/user/adapter/PersonController'
+import { PersonStructure } from '../../user/entity/Person'
+import { HttpProxyResponse } from '../../main/usecase/HttpProxyResponse'
+import { PersonController } from '../../user/adapter/PersonController'
 
 const router: Router = Router()
 

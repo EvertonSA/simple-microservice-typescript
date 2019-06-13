@@ -4,9 +4,9 @@ import { resolve } from 'path'
 import timeout from 'connect-timeout'
 import { networkInterfaces } from 'os'
 import { readdir, existsSync } from 'fs'
-import { Environment } from '@app/main/driver/Environment'
+import { Environment } from '../../main/driver/Environment'
 
-export class Express {
+class Express {
   private server: express.Application
   public constructor () {
     this.server = express()
@@ -47,11 +47,8 @@ export class Express {
         const filename = `${pathroot}/${modulename}/${fileroute}.ts`
         const routename = (modulename === 'main') ? '' : modulename
         if (existsSync(filename)) {
-          const uri = new Array<string>(
-            `/${routename}`,
-            `/${Environment.APP_VERSION}/${routename}`
-          )
-          this.server.use(uri, require(`@app/${modulename}/${fileroute}`))
+          const uri = new Array<string>(`/${routename}`)
+          this.server.use(uri, require(`../../${modulename}/${fileroute}`))
           if (routename) console.info(uri)
         }
       })
@@ -65,3 +62,5 @@ export class Express {
     return this
   }
 }
+
+export { Express }

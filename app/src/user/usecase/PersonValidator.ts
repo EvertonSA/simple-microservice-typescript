@@ -1,7 +1,7 @@
-import { PersonStructure } from '@app/user/entity/Person'
-import { DateHandler } from '@app/main/usecase/CalendarHandler'
+import { PersonStructure } from '../../user/entity/Person'
+import { DateHandler } from '../../main/usecase/CalendarHandler'
 
-export class PersonValidator {
+class PersonValidator {
   public validate (person: PersonStructure): PersonStructure {
     return Object.freeze({
       _id: person._id,
@@ -25,3 +25,5 @@ export class PersonValidator {
     return birthday
   }
 }
+
+export { PersonValidator }

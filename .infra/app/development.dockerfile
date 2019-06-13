@@ -1,5 +1,5 @@
 # OS
-FROM node:10
+FROM node:8
 
 # Owner
 LABEL key="Helio Nogueira <helio.nogueir@gmail.com>"

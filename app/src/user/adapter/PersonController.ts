@@ -1,10 +1,10 @@
-import { PersonRead } from '@app/user/entity/PersonRead'
-import { PersonCreate } from '@app/user/entity/PersonCreate'
-import { PersonDelete } from '@app/user/entity/PersonDelete'
-import { PersonStructure, Person } from '@app/user/entity/Person'
-import { ControllerRead, ControllerCreate, ControllerDelete } from '@app/main/adapter/Controller'
+import { PersonRead } from '../../user/entity/PersonRead'
+import { PersonCreate } from '../../user/entity/PersonCreate'
+import { PersonDelete } from '../../user/entity/PersonDelete'
+import { PersonStructure, Person } from '../../user/entity/Person'
+import { ControllerRead, ControllerCreate, ControllerDelete } from '../../main/adapter/Controller'
 
-export class PersonController implements
+class PersonController implements
   ControllerRead<string, PersonStructure>,
   ControllerCreate<PersonStructure, PersonStructure>,
   ControllerDelete<boolean> {
@@ -33,3 +33,5 @@ export class PersonController implements
     })
   }
 }
+
+export { PersonController }

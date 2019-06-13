@@ -1,9 +1,9 @@
 import { Collection } from 'mongodb'
-import { Database as Db } from '@app/main/driver/MongoDB'
+import { Database as Db } from '../main/driver/MongoDB'
 
-import person = require('@app/database/person.json')
+import person = require('./person.json')
 
-export class Database {
+class Database {
   public static seed (): void {
     Database.person().catch((err): void => console.error(err))
   }
@@ -15,3 +15,5 @@ export class Database {
     })
   }
 }
+
+export { Database }

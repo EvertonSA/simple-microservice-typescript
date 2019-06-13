@@ -1,4 +1,4 @@
-import { Environment } from '@app/main/driver/Environment'
+import { Environment } from '../../main/driver/Environment'
 import { MongoClient, Collection, MongoClientOptions, CollectionCreateOptions } from 'mongodb'
 
 class Dbal {
@@ -30,7 +30,6 @@ class Dbal {
     if (Dbal.client instanceof MongoClient) {
       const adminDB = Dbal.client.db('admin').admin()
       const status = await adminDB.serverStatus()
-      console.info(JSON.stringify(status.connections))
     }
   }
 }
@@ -48,7 +47,7 @@ class Seed {
   }
 }
 
-export class Database {
+class Database {
   public static collection (dbname: string, name: string, options: CollectionCreateOptions): Promise<Collection> {
     return new Promise<Collection>((resolve, reject): void => {
       Seed.create(dbname, name, options)
@@ -57,3 +56,5 @@ export class Database {
     })
   }
 }
+
+export { Database };

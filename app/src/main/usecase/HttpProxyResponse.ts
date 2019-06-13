@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
-import { HttpProxyResponseStructure } from '@app/main/entity/HttpProxyResponseStructure'
+import { HttpProxyResponseStructure } from '../../main/entity/HttpProxyResponseStructure'
 
-export class HttpProxyResponse {
+class HttpProxyResponse {
   public static send<ResultType> (request: Request, response: Response, result: ResultType): void {
     const statusCode: number = HttpProxyResponse.prepareStatusCode<ResultType>(result)
     const responseProxy: HttpProxyResponseStructure<ResultType | string> = {
@@ -30,3 +30,5 @@ export class HttpProxyResponse {
     return 500
   }
 }
+
+export { HttpProxyResponse }

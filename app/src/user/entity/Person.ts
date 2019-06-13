@@ -1,13 +1,13 @@
-import { PersonValidator } from '@app/user/usecase/PersonValidator'
+import { PersonValidator } from '../../user/usecase/PersonValidator'
 
-export interface PersonStructure {
+interface PersonStructure {
   _id: string;
   firstname: string;
   lastname: string;
   birthday: string;
 }
 
-export class Person implements PersonStructure {
+class Person implements PersonStructure {
   public readonly _id: string;
   public readonly firstname: string;
   public readonly lastname: string;
@@ -25,3 +25,5 @@ export class Person implements PersonStructure {
     this.birthday = birthday
   }
 }
+
+export { PersonStructure, Person }

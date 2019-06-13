@@ -1,16 +1,18 @@
-export interface EntityCreate<Input, Output> {
+interface EntityCreate<Input, Output> {
   registerRow (row: Input): Promise<Output>;
 }
 
-export interface EntityRead<Input, Output> {
+interface EntityRead<Input, Output> {
   findAll (options?: Input): Promise<Output[]>;
   findRow (id: string): Promise<Output>;
 }
 
-export interface EntityUpdate<Input, Output> {
+interface EntityUpdate<Input, Output> {
   updateRow (row: Input): Promise<Output>;
 }
 
-export interface EntityDelete<Output> {
+interface EntityDelete<Output> {
   deleteRow (id: string): Promise<Output>;
 }
+
+export { EntityCreate, EntityRead, EntityUpdate, EntityDelete }
