@@ -9,7 +9,7 @@ class PersonCreate implements EntityCreate<PersonStructure, PersonStructure> {
       Database.person().then((collection): void => {
         collection.insertOne(row, (err, result): void => {
           if (err) reject(err)
-          else resolve(result.ops[0])
+          else resolve(result.ops[0] as PersonStructure)
         })
       }).catch((err): void => reject(err))
     })
