@@ -32,6 +32,11 @@ class Dbal {
       const status = await adminDB.serverStatus()
     }
   }
+  private static async closeConnection(): Promise<void> {
+    if (Dbal.client instanceof MongoClient) {
+        Dbal.client.close()
+    }
+  }
 }
 
 class Seed {
