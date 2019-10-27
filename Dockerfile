@@ -3,8 +3,6 @@ FROM alpine:3.10 AS base
 RUN apk add --no-cache nodejs-current tini npm  python make g++
 # set working directory
 WORKDIR /root/chat
-# Set tini as entrypoint
-ENTRYPOINT ["/sbin/tini", "--"]
 # copy project file
 COPY app/package.json .
  
@@ -34,5 +32,6 @@ FROM base AS release
 COPY --from=dependencies /root/chat/prod_node_modules ./node_modules
 # copy app sources
 COPY app/ .
+RUN pwd & ls -la dist/bin
 # define CMD
 CMD npm start

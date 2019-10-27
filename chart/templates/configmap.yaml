@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap 
+metadata:
+  name: {{ include "chart.fullname" . }}-cm
+data:
+  NODE_ENV: "production"
+  SERVER_URI_PORT: "{{ .Values.service.port }}"
+  STORAGE_MONGO_HOSTNAME: "{{ .Values.database.hostname }}"
+  STORAGE_MONGO_PORT: "{{ .Values.database.port }}"
