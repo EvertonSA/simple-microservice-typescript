@@ -32,6 +32,6 @@ FROM base AS release
 COPY --from=dependencies /root/chat/prod_node_modules ./node_modules
 # copy app sources
 COPY app/ .
-RUN pwd & ls -la dist/bin
+RUN pwd & ls -la
 # define CMD
 CMD npm start
